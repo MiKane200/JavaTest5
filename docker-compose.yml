@@ -1,0 +1,31 @@
+version: "3"
+services:
+  mysql-1:
+    container_name: mysql-1
+    build: ./docker/mysql
+    image: javatest/mysql:1.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+  java-1:
+    container_name: java-1
+    build: ./docker/java
+    image: javatest/java:1.0
+    ports:
+      - "8888:8888"
+    depends_on:
+      - mysql-1
+    links:
+      - mysql-1
+    environment:
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: root
+      DATABASENAME: sakila
+      IP: mysql-1
+      PORT: 3306
+      JAVA_PORT: 8888
+      JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+      TITLE: TESTDATA
+      DESCRIPTION: THIS IS TEST DATA
+      LANGUAGEID: 1

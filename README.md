@@ -1,0 +1,11 @@
+# java basic test5
+There are some steps for you to run those programs:
+1. 进入 JavaTest5。
+2. 运行build.sh。
+
+
+* 这个程序在会打印出结果后自动退出（包括清理你的容器和镜像）,如果你不想运行完之后就退出程序，并自己手动删除镜像容器的话。可以在build.sh里面将`sh stop.sh;`删掉，然后手动去跑stop.sh。
+
+
+Sunshine!
+<p align="right">java-basic-test By zongwei Li</p>
