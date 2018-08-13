@@ -89,6 +89,12 @@ public class CustomerServiceImpl implements CustomerService {
         Example example = Example.builder(Customer.class)
                 .where(Sqls.custom().andEqualTo("customerId", customer.getCustomerId()))
                 .build();
+        customer.setAddressId((short) 1);
+        customer.setActive(true);
+        customer.setCreateDate(new Date());
+        customer.setLastUpdate(new Date());
+        customer.setStoreId((byte) 1);
+        customer.setEmail("123update@hand.com");
         int flag = customerMapper.updateByExample(customer, example);
         return customer;
     }
